@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="element.css">
+</head>
+<body>
+<div id="app" style="width: 80%; margin: 0 auto">
+    <h2>用户信息表</h2>
+
+    <el-row>
+        <el-col :span="2" style="margin-bottom: 10px">
+            <el-button type="primary" @click="add">新增</el-button>
+        </el-col>
+        <el-col :span="2" style="margin-bottom: 10px">
+            <el-button type="primary" @click="generate">生成</el-button>
+        </el-col>
+    </el-row>
+
+    <el-select v-model="value" placeholder="请选择"  @change="SelectChange">
+        <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+        </el-option>
+    </el-select>
+
+    <el-table
+            :data="page"
+            stripe
+            border
+            style="width: 100%">
+        <el-table-column
+                prop="index_num"
+                label="index_num"
+                width="120"
+        >
+        </el-table-column>
+        <el-table-column
+                prop="index_name"
+                label="index_name"
+                width="120"
+        >
+        </el-table-column>
+        <el-table-column
+                prop="department"
+                label="department"
+                width="120"
+        >
+        </el-table-column>
+        <el-table-column
+                prop="data_sources"
+                label="data_sources"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="cycle"
+                label="cycle">
+        </el-table-column>
+        <el-table-column
+                prop="type"
+                label="type">
+        </el-table-column>
+        <el-table-column
+                prop="measurement_unit"
+                label="measurement_unit"
+                width="160">
+        </el-table-column>
+        <el-table-column
+                prop="year"
+                label="year">
+        </el-table-column>
+        <el-table-column
+                prop="month"
+                label="month">
+        </el-table-column>
+        <el-table-column
+                prop="data"
+                label="data">
+        </el-table-column>
+        <el-table-column
+                prop="parent_id"
+                label="parent_id"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                 prop="delete"
+                 label="delete"
+                 width="120">
+            <template slot-scope="scope">
+                <el-button @click="handleDelete(scope.row)" type="danger" size="mini">删除</el-button>
+            </template>
+        </el-table-column>
+    </el-table>
+    <el-row type="flex" justify="center" style="margin-top: 10px">
+        <el-pagination
+                layout="prev, pager, next"
+                :page-size="pageSize"
+                :current-page="pageNum"
+                @prev-click="loadTable"
+                @current-change="loadTable"
+                @next-click="loadTable"
+                :total="page.totalElements">
+        </el-pagination>
+    </el-row>
+    <el-dialog
+            title="生成数据年份"
+            :visible.sync="dialogVisible1"
+            width="30%">
+        <el-date-picker
+                v-model="Generate_year"
+                type="year"
+                placeholder="选择年">
+        </el-date-picker>
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible1 = false">取 消</el-button>
+            <el-button type="primary" @click="generate_save">确 定</el-button>
+        </span>
+    </el-dialog>
+
+    <el-dialog
+            title="用户信息"
+            :visible.sync="dialogVisible"
+            width="30%">
+        <el-form ref="form" :model="form" label-width="100px">
+            <el-form-item label="index_num">
+                <el-select v-model="value_add" placeholder="请选择" @change="handleSelectChange">
+                    <el-option
+                            v-for="item in options_add"
+                            :key="item.value_add"
+                            :label="item.label"
+                            :value="item.value_add">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="index_name">
+                 {{index_name}}
+            </el-form-item>
+            <el-form-item label="部门">
+<!--                <el-radio v-model="form.department" label="生产管理部">生产管理部</el-radio>-->
+<!--                <el-radio v-model="form.department" label="卷包车间">卷包车间</el-radio>-->
+<!--                <el-radio v-model="form.department" label="制丝车间">制丝车间</el-radio>-->
+<!--                <el-radio v-model="form.department" label="工艺质量">工艺质量</el-radio>-->
+<!--                <el-radio v-model="form.department" label="动力车间">动力车间</el-radio>-->
+                {{department}}
+            </el-form-item>
+            <el-form-item label="data_sources">
+                {{data_sources}}
+            </el-form-item>
+            <el-form-item label="cycle">
+                {{cycle}}
+            </el-form-item>
+            <el-form-item label="type">
+                {{type}}
+            </el-form-item>
+            <el-form-item label="measurement_unit">
+                {{measurement_unit}}
+            </el-form-item>
+            <el-form-item label="年">
+                <el-date-picker
+                        v-model="Select_year"
+                        type="year"
+                        placeholder="选择年">
+                </el-date-picker>
+            </el-form-item>
+            <el-form-item label="月">
+                <el-input v-model="month" placeholder="请填写月份"></el-input>
+            </el-form-item>
+            <el-form-item label="数据">
+                <el-input v-model="input" placeholder="请填写数据"></el-input>
+            </el-form-item>
+            <el-form-item label="parent_id">
+                {{parent_id}}
+            </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="save">确 定</el-button>
+        </span>
+    </el-dialog>
+
+</div>
+
+<script src="jquery.min.js"></script>
+<script src="vue.js"></script>
+<!-- 引入组件库 -->
+<script src="element.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            page: {},
+            content:[],
+            name: '',
+            pageNum: 1,
+            pageSize: 8,
+            dialogVisible: false,
+            dialogVisible1:false,
+            form: {},
+            options: [{
+                value: 'C11',
+                label: 'C11'
+            }, {
+                value: 'C21',
+                label: 'C21'
+            }, {
+                value: 'C22',
+                label: 'C22'
+            }, {
+                value: 'C23',
+                label: 'C23'
+            }, {
+                value: 'C24',
+                label: 'C24'
+            }, {
+                value: 'C31',
+                label: 'C31'
+            }, {
+                value: 'C32',
+                label: 'C32'
+            }, {
+                value: 'C33',
+                label: 'C33'
+            }],
+            value: '',
+            options_add: [{
+                value_add: 'C11',
+                label: 'C11'
+            }, {
+                value_add: 'C21',
+                label: 'C21'
+            }, {
+                value_add: 'C22',
+                label: 'C22'
+            }, {
+                value_add: 'C23',
+                label: 'C23'
+            }, {
+                value_add: 'C24',
+                label: 'C24'
+            }, {
+                value_add: 'C31',
+                label: 'C31'
+            }, {
+                value_add: 'C32',
+                label: 'C32'
+            }, {
+                value_add: 'C33',
+                label: 'C33'
+            }],
+            value_add:'',
+            index_name:'',
+            department:'',
+            data_sources:'',
+            type:'',
+            Select_year:'',
+            month:'',
+            input:'',
+            parent_id:'',
+            measurement_unit:'',
+            cycle:'',
+            Generate_year:'',
+        },
+        created() {
+            this.loadTable(this.pageNum);
+        },
+        methods: {
+            loadTable(num) {
+                this.pageNum = num;
+                $.get("/index_three_level_original/page?pageNum=" + this.pageNum + "&pageSize=" + this.pageSize + "&name=" + this.name).then(res => {
+                    console.log(res);
+                    this.page = res.data;
+                    console.log(this.page);
+                });
+
+            },
+
+            add() {
+                this.dialogVisible = true;
+                this.form = {};
+            },
+            edit(row) {
+                this.form = row;
+                this.dialogVisible = true;
+            },
+
+            save(){
+                $.ajax({
+                    url: '/index_three_level_original/index_add', // 向后端发送请求的路由
+                    type: 'post', // 请求类型为 POST
+                    contentType: 'application/json',
+                    data: JSON.stringify( {
+                        index_num : this.value_add,
+                        index_name: this.index_name,
+                        department : this.department,
+                        data_sources: this.data_sources,
+                        cycle:this.cycle,
+                        type: this.type,
+                        measurement_unit:this.measurement_unit,
+                        year:this.Select_year.getFullYear(),
+                        month:this.month,
+                        data:this.input,
+                        parent_id: this.parent_id
+                    }),
+                }).then(res=>{
+                    this.dialogVisible = false ;
+                })
+            },
+
+            handleDelete(row) {
+                console.log(row)
+                $.ajax({
+                    url: `/index_three_level_original/index_delete`,
+                    type: 'get',
+                    contentType: 'application/json',
+                    data: {
+                        index_num : row.index_num,
+                        year: row.year,
+                        month: row.month,
+                    },
+                }).then(res => {
+                    this.loadTable(1);
+                });
+            },
+            SelectChange(){
+                console.log(this.value),
+                    $.ajax({
+                        url: '/index_three_level_original/index_select_index',
+                        type: 'get',
+                        dataType: 'json',
+                        data:{
+                            index_num:this.value,
+                        }
+                    }).then(res => {
+                        console.log(res);
+                        this.page = res;
+                        console.log(this.page);
+                    })
+            },
+            handleSelectChange(){
+                $.ajax({
+                    url: '/index_three_level_original/index_select_index',
+                    type: 'get',
+                    dataType: 'json',
+                    data:{
+                        index_num:this.value_add,
+                    }
+                }).then(res => {
+                    console.log('Response from server:', res);
+                    this.index_name = res[0].index_name;
+                    this.department = res[0].department;
+                    this.data_sources = res[0].data_sources;
+                    this.type = res[0].type;
+                    this.measurement_unit = res[0].measurement_unit;
+                    this.cycle = res[0].cycle;
+                    this.parent_id = res[0].parent_id;
+                    console.log('Updated index_name:', this.index_name);
+                })
+            },
+            generate(){
+                this.dialogVisible1 = true ;
+            },
+            generate_save(){
+                $.ajax({
+                    url: '/index_three_level_original/index_generate_data',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        year: this.Generate_year.getFullYear()
+                    },
+
+                }).then(res => {
+                    console.log('11');
+                    this.dialogVisible1 = false;
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

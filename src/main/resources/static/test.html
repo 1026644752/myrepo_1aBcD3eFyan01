@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modal 示例</title>
+</head>
+<body>
+<button id="openModalButton">打开 Modal</button>
+
+<!-- 模态框 -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <p id="hiddenParagraph">sdfsdfsdf</p>
+    </div>
+</div>
+
+<!-- JavaScript 代码 -->
+<script>
+    var modal = document.getElementById("myModal");
+    var hiddenParagraph = document.getElementById("hiddenParagraph");
+    var openModalButton = document.getElementById("openModalButton");
+    var closeModal = document.getElementById("closeModal");
+
+    // 当点击按钮时，显示模态框并添加内容到 <p> 标签
+    openModalButton.addEventListener("click", function() {
+        modal.style.display = "block";
+        hiddenParagraph.textContent = "这是在点击后添加的文本内容。";
+    });
+
+    // 当点击关闭按钮时，关闭模态框
+    closeModal.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<title>卷烟厂综合效能数据展板</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
+	</head>
+	
+	<body>
+
+
+	<div class="header">
+			<img src="img/header-title.png" class="header-title" />
+		</div>
+		<div class="wrapper">
+			<div class="content">
+				<div class="col col-l">
+
+					<div style="margin-top: 20px;">
+						<span class="chose_tltle">请选择年份：</span>
+
+						<select class="year_chose" id="yearChose">
+
+						</select>
+						<a href="index.html">
+							<button class="chose_enter">A级指标</button>
+						</a>
+					</div>
+					
+
+					<!-- 123 -->
+					<div class="xpanel-wrapper xpanel-wrapper-30"  style="margin-top: 24px">
+						<div class="xpanel xpanel-l-t">
+							<!-- <div class="title">B4 制丝工艺质量过程控制</div> -->
+
+							<a class="title">C31 叶丝出丝率</a>
+							<span ><button class="btn_details"  id="openModalBtn_B1">详情</button></span>
+
+
+
+
+							<div class="modal" id="myModal_B1">
+
+								<div class="modal-content">
+									<span class="close" id="closeModal_B1">&times;</span>
+
+								  <div id="chartContainer_B1" >
+								  </div>
+								  <p id="p_B1"  style="margin-top: 30px; color: aliceblue;">
+									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+								</div>
+							</div>
+							<div class="xpanel-chart" id="chart_B1_one_level"></div>
+
+							
+						</div>
+					</div>
+
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-l-b">
+							<!-- <div class="title">B5 卷接包工艺质量过程控制</div>
+							<div class="xpanel-chart" id="chart_B5_one_level"></div> -->
+
+
+							<a class="title">C32 单箱卷烟消耗用盘纸</a>
+							<span ><button class="btn_details"  id="openModalBtn_B2">详情</button></span>
+							<div class="modal" id="myModal_B2">
+
+								<div class="modal-content">
+									<span class="close" id="closeModal_B2">&times;</span>
+
+								  <div id="chartContainer_B2" >
+								  </div>
+								  <p id="p_B2" style="margin-top: 30px; color: aliceblue;">
+									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+								</div>
+							</div>
+
+
+							<div class="xpanel-chart" id="chart_B2_one_level"></div>
+
+
+						</div>
+					</div>
+
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-l-b">
+<!-- 
+							<a href="B1_two.html" class="title">B6 节能减排</a>
+							<span ><button class="btn_details"  id="openModalBtn_B6">详情</button></span> -->
+
+							<a class="title">C33 单箱卷烟消耗小盒皮</a>
+							<span ><button class="btn_details"  id="openModalBtn_B3">详情</button></span>
+
+
+							<div class="modal" id="myModal_B3">
+
+								<div class="modal-content">
+									<span class="close" id="closeModal_B3">&times;</span>
+
+								  <div id="chartContainer_B3" >
+								  </div>
+								  <p id="p_B3" style="margin-top: 30px; color: aliceblue;">
+									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+								</div>
+							</div>
+
+
+							<div class="xpanel-chart" id="chart_B3_one_level"></div>
+						</div>
+					</div>
+				</div>
+				<!-- 123     -->
+				<div class="col col-c">
+					<div class="xpanel-wrapper xpanel-wrapper-60">
+						<div class="xpanel no-bg">  
+							<div class="xpanel xpanel-c-b" style="margin-top: 69px;">
+								<div class="title title-long">生产物耗分析</div>
+								<div class="xpanel" id="chart_zonghenengxiaofenxi"></div>
+							</div>							
+						</div>
+					</div>
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-c-b">
+							<div class="title title-long">B3 生产物耗
+								<span ><button class="btn_details"  id="openModalBtn_zonghenengxiao">详情</button></span>
+							</div>
+
+							<div class="modal" id="myModal_zonghenengxiao">
+
+								<div class="modal-zonghenengxiao-content">
+									<span class="close" id="closeModal_zonghenengxiao">&times;</span>
+
+									<div id="chartContainer_zonghenengxiao" >
+										<p id="p_zonghenengxiao" style="margin-top: 30px; color: aliceblue;">
+											该数据中值为1，最大值为3，最小值为1
+										</p>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="xpanel-chart" id="chart_zonghenengxiao"></div>
+						</div>
+					</div>
+				</div>
+				<!-- 456       -->
+				<div class="col col-r">
+					<div class="xpanel-wrapper xpanel-wrapper-30" style="margin-top: 68px">
+						<div class="xpanel xpanel-r-t">
+							<!-- <a href="B1_two.html"><div class="title">B1 计划执行
+								<span ><button class="btn_details"  id="openModalBtn_B1">详情</button></span>
+							</div></a> -->
+							<a class="title">C34 单箱残烟</a>
+							<span ><button class="btn_details"  id="openModalBtn_B4">详情</button></span>
+
+
+
+
+							<div class="modal" id="myModal_B4">
+
+								<div class="modal-content">
+									<span class="close" id="closeModal_B4">&times;</span>
+
+								  <div id="chartContainer_B4" ></div>
+								  <p id="p_B4" style="margin-top: 30px; color: aliceblue;">
+									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+								</div>
+							</div>
+
+
+							<div class="xpanel-chart" id="chart_B4_one_level"></div>
+						</div>
+					</div>
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-r-m">
+							<a class="title">C35 单箱卷烟消耗嘴棒</a>
+							<span ><button class="btn_details"  id="openModalBtn_B5">详情</button></span>
+							<div class="modal" id="myModal_B5">
+
+								<div class="modal-content">
+									<span class="close" id="closeModal_B5">&times;</span>
+
+								  <div id="chartContainer_B5" >
+								  </div>
+								  <p id="p_B5" style="margin-top: 30px; color: aliceblue;">
+									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+								</div>
+							</div>
+
+							<div class="xpanel-chart" id="chart_B5_one_level"></div>
+						</div>
+					</div>
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-r-b">
+							
+
+							<a class="title">C36 单箱耗烟丝</a>
+							<span ><button class="btn_details"  id="openModalBtn_B6">详情</button></span>
+
+
+							<div class="modal" id="myModal_B6">
+
+								<div class="modal-content">
+									<span class="close" id="closeModal_B6">&times;</span>
+
+								  <div id="chartContainer_B6" >
+								  </div>
+								  <p id="p_B6" style="margin-top: 30px; color: aliceblue;">
+									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+								</div>
+							</div>
+
+							
+							<div class="xpanel-chart" id="chart_B6_one_level"></div>
+
+				<!-- 456   -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/echarts-3.8.5.min.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				//加载首页所有图表
+        		Echarts($('#yearChose').val());
+				//加载首页所有详情按钮功能
+				Modal_XiangQing_All();
+
+				yearChose();
+
+				// console.log($('#yearChose').val());
+				
+				//数据异步查询
+
+				
+			});
+
+			//获取下拉列表值，通过列表的值来显示对应年份
+			function yearChose(){
+
+				$.ajax({
+
+					url:'/index/getAllYears',
+					type:'get',
+					dataType:'json',
+					success:function (data) {
+
+
+						// 获取下拉列表元素
+						var yearSelect = $("#yearChose");
+
+						// 清空下拉列表
+						yearSelect.empty();
+
+						// 使用$.each遍历年份数据并添加到下拉列表
+						$.each(data, function (index, year) {
+							// 创建一个新选项
+							var option = $("<option></option>");
+							option.text(year);
+
+							// 如果需要设置默认选中项，可以添加适当的逻辑
+							// 例如：if (year === "2021") option.prop("selected", true);
+
+							// 将选项添加到下拉列表
+							yearSelect.append(option);
+
+						});
+
+						$('#yearChose').trigger('change');
+
+
+					}
+
+
+				});
+
+				$('#yearChose').change(function() {
+					// 获取所选的年份值
+					var selectedYear = $(this).val();
+
+					// 在这里可以执行您想要的操作，例如显示所选的年份或将其发送到服务器等
+					// console.log('所选的年份是：', selectedYear);
+					Echarts(selectedYear);
+				});
+
+
+			}
+
+
+
+
+			//各个图表-----------------------------------------------------------------------
+			function Echarts(year) {
+
+
+
+
+						//C31叶丝出丝率 折柱图
+                        var myChart_B1_one_level = echarts.init(document.getElementById('chart_B1_one_level'));
+                        //share_option(myChart_B1_one_level,data[5]);
+						find_index_C_chart('C31',year,myChart_B1_one_level);
+
+                        //C32单箱卷烟消耗用盘纸 折柱图
+                        var myChart_B2_one_level = echarts.init(document.getElementById('chart_B2_one_level'));
+						//share_option(myChart_B2_one_level,data[6]);
+						find_index_C_chart('C32',year,myChart_B2_one_level);
+
+
+						//C33单箱卷烟消耗小盒皮 折柱图
+                        var myChart_B3_one_level = echarts.init(document.getElementById('chart_B3_one_level'));
+                       // share_option(myChart_B3_one_level,data[7]);
+						find_index_C_chart('C33',year,myChart_B3_one_level);
+
+
+						//C34单箱残烟 折柱图
+                        var myChart_B4_one_level = echarts.init(document.getElementById('chart_B4_one_level'));
+                        //share_option(myChart_B4_one_level,data[8]);
+						find_index_C_chart('C34',year,myChart_B4_one_level);
+
+
+						//C35单箱卷烟消耗嘴棒 折柱图
+						var myChart_B5_one_level = echarts.init(document.getElementById('chart_B5_one_level'));
+                        //share_option(myChart_B5_one_level,data[9]);
+						find_index_C_chart('C35',year,myChart_B5_one_level);
+
+
+						//C36单箱耗烟丝 折柱图
+                        var myChart_B6_one_level = echarts.init(document.getElementById('chart_B6_one_level'));
+                        //share_option(myChart_B6_one_level,data[10]);
+						find_index_C_chart('C36',year,myChart_B6_one_level);
+
+
+
+						//综合能效分析 雷达图
+						var myChart_zonghenengxiaofenxi = echarts.init(document.getElementById('chart_zonghenengxiaofenxi'));
+						chart_zonghenengxiaofenxi_option(myChart_zonghenengxiaofenxi,year,'B3');
+
+
+
+						getZongHeNengXiaoCharts('B3');
+
+			
+			}
+
+
+
+			function getZongHeNengXiaoCharts(index_num) {
+				$.ajax({
+
+					url:'/index/getTwoYearBLevel',
+					type:'get',
+					dataType:'json',
+					data:{
+						index_num:index_num,
+					},
+					success:function (data) {
+
+						console.log("function getZongHeNengXiaoCharts(index_num)==>"+data)
+						//综合能效 折柱图
+						var myChart_zonghenengxiao = echarts.init(document.getElementById('chart_zonghenengxiao'));
+						chart_zonghenengxiao_option(myChart_zonghenengxiao,data);
+
+
+					}
+
+
+				});
+			}
+
+			function chart_zonghenengxiao_option(myChart,data){
+
+
+				var option;
+
+				option = {
+					tooltip : {
+						trigger: 'axis'
+					},
+					grid: {
+						x: 46,
+						y:35,
+						x2:30,
+						y2:25,
+						borderWidth: 0
+					},
+
+					calculable : false,
+					legend: {
+						data:['效能指数','同比','效能指数','同比'],
+						//data:['下雨','下雪','晴天','订单量'],
+						textStyle:{
+							color:"#e9ebee"
+
+						}
+					},
+					xAxis : [
+						{
+							type : 'category',
+							data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+							splitLine: {
+								show: false
+							},
+							axisLabel: {
+								show: true,
+								textStyle: {
+									color: '#a4a7ab',
+									align: 'center'
+								},
+								interval: 0, // 设置为 0 表示全部标签都显示
+
+							}
+
+						}
+					],
+					yAxis : [
+						{
+							type : 'value',
+
+							name : '效能指数',
+							nameTextStyle: {
+								color: '#1afffd' // 设置标题颜色
+							},
+							axisLabel : {
+								formatter: '{value} ',
+								textStyle: {
+									color: '#a4a7ab',
+									align: 'right'
+								}
+							},
+							splitLine: {
+								show: false
+							},
+						},
+
+
+					],
+					series : [
+
+						{
+							name:'效能指数',
+							type:'bar',
+							barWidth: 10,//调整柱的宽度
+							data:[data[12].data,data[13].data,data[14].data,data[15].data,data[16].data,data[17].data,data[18].data,data[19].data,data[20].data,data[21].data,data[22].data,data[23].data],
+							itemStyle: {
+								normal: {
+									color:"#0ad5ff"
+								}
+							}
+						},
+
+						{
+							name:'同比',
+							type:'bar',
+							barWidth: 10,//调整柱的宽度
+							data:[data[0].data,data[1].data,data[2].data,data[3].data,data[4].data,data[5].data,data[6].data,data[7].data,data[8].data,data[9].data,data[10].data,data[11].data],
+							itemStyle: {
+								normal: {
+									color:"#00ff00"
+								}
+							}
+						},
+
+
+
+
+						{
+							name:'效能指数',
+							type:'line',
+							yAxisIndex: 0,
+							data:[data[12].data,data[13].data,data[14].data,data[15].data,data[16].data,data[17].data,data[18].data,data[19].data,data[20].data,data[21].data,data[22].data,data[23].data],
+							itemStyle: {
+								normal: {
+									color:"#1afffd"
+								}
+							}
+						},
+
+						{
+							name:'同比',
+							type:'line',
+							yAxisIndex: 0,
+							data:[data[0].data,data[1].data,data[2].data,data[3].data,data[4].data,data[5].data,data[6].data,data[7].data,data[8].data,data[9].data,data[10].data,data[11].data],
+							itemStyle: {
+								normal: {
+									color:"#00ff00"
+								}
+							}
+						}
+					]
+				};
+
+
+				option && myChart.setOption(option);
+
+
+
+			}
+
+
+
+
+
+			//共享图表配置-各个一级指标
+			function find_index_C_chart(index_num,year,myChart) {
+				$.ajax({
+
+					url:'/index/getCThreeLevelController',
+					type:'get',
+					dataType:'json',
+					data:{
+						index_num:index_num,
+						year:year,
+					},
+					success:function (data) {
+
+						//共享echarts配置信息 输入初始化后的div对象以及ajax返回的数据
+						share_option(myChart,data);
+
+
+					}
+
+
+				});
+			}
+
+
+			function share_option(myChart,data){
+
+
+
+				var option;
+
+
+				option = {
+					tooltip : {
+						trigger: 'axis'
+					},
+					grid: {
+						x: 46,
+						y:35,
+						x2:30,
+						y2:25,
+						borderWidth: 0
+					},
+
+					calculable : false,
+					legend: {
+						data:['效能指数'],
+						textStyle:{
+							color:"#e9ebee"
+
+						}
+					},
+					xAxis : [
+						{
+							type : 'category',
+							data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+							splitLine: {
+								show: false
+							},
+							axisLabel: {
+								show: true,
+								textStyle: {
+									color: '#a4a7ab',
+									align: 'center'
+								},
+								interval: 0, // 设置为 0 表示全部标签都显示
+
+							},
+							axisLine: {
+								lineStyle: {
+									color: 'white' // 设置 x 轴颜色为白色
+								}
+							}
+
+						}
+					],
+					yAxis : [
+						{
+							type : 'value',
+							name : '效能指数（%）',
+							min: 0,  // 设置最小刻度
+							max: 100, // 设置最大刻度
+							nameTextStyle: {
+								color: '#1afffd' // 设置标题颜色
+							},
+							axisLabel : {
+								formatter: '{value} ',
+								textStyle: {
+									color: '#a4a7ab',
+									align: 'right'
+								}
+							},
+							splitLine: {
+								show: false
+							},
+							axisLine: {
+								lineStyle: {
+									color: 'white' // 设置 x 轴颜色为白色
+								}
+							}
+						},
+
+
+					],
+					series : [
+
+						{
+							name:'效能指数',
+							type:'bar',
+							barWidth: 10,//调整柱的宽度
+							data:[data[0].data,data[1].data,data[2].data,data[3].data,data[4].data,data[5].data,data[6].data,data[7].data,data[8].data,data[9].data,data[10].data,data[11].data],
+							itemStyle: {
+								normal: {
+									color:"#0ad5ff"
+								}
+							}
+						},
+
+						{
+							name:'效能指数',
+							type:'line',
+							yAxisIndex: 0,
+							data:[data[0].data,data[1].data,data[2].data,data[3].data,data[4].data,data[5].data,data[6].data,data[7].data,data[8].data,data[9].data,data[10].data,data[11].data],
+							itemStyle: {
+								normal: {
+									color:"#1afffd"
+								}
+							}
+						}
+					]
+				};
+
+
+				option && myChart.setOption(option);
+			}
+
+
+			
+			function chart_zonghenengxiaofenxi_option(myChart,year,parent_id) {
+
+				$.ajax({
+
+					url: '/index/getFindBForAllC',
+					type: 'get',
+					dataType: 'json',
+					data: {
+						year: year,
+						parent_id: parent_id,
+					},
+					success: function (data) {
+
+						console.log('getB_two_levelCharts');
+						console.log(data);
+
+						var count = 0;
+						var sum = 0;
+						var data_C31;
+						var data_C32;
+						var data_C33;
+						var data_C34;
+						var data_C35;
+						var data_C36;
+
+						$.each(data, function (index, item) {
+							sum = sum + item.data;
+							count = count + 1;
+							switch (count) {
+								case 12 :
+									data_C31 = sum / 12 * 0.1675;
+									sum = 0;
+									break;
+								case 24 :
+									data_C32 = sum / 12 * 0.105;
+									sum = 0;
+									break;
+								case 36:
+									data_C33 = sum / 12 * 0.185;
+									sum = 0;
+									break;
+								case 48:
+									data_C34 = sum / 12 * 0.2125;
+									sum = 0;
+									break;
+								case 60:
+									data_C35 = sum / 12 * 0.155;
+									sum = 0;
+									break;
+								case 72:
+									data_C36 = sum / 12 * 0.175;
+									sum = 0;
+									break;
+
+							}
+
+						})
+
+
+						var option;
+
+
+						// var data_C31 = avg_month(5)*0.1675;
+						// var data_C32 = avg_month(6)*0.105;
+						// var data_C33 = avg_month(7)*0.185;
+						// var data_C34 = avg_month(8)*0.2125;
+						// var data_C35 = avg_month(9)*0.155;
+						// var data_C36 = avg_month(10)*0.175;
+
+
+						option = {
+							title: {
+								text: ''
+							},
+							legend: {
+
+								data: [
+									//data: ['Allocated Budget', 'Actual Spending']
+									{name: '', textStyle: {color: '#FF0000'}} // 修改颜色
+
+
+								]
+							},
+							radar: {
+								// shape: 'circle',
+								indicator: [
+									{name: 'C31', max: 30},
+									{name: 'C32', max: 30},
+									{name: 'C33', max: 30},
+									{name: 'C34', max: 30},
+									{name: 'C35', max: 30},
+									{name: 'C36', max: 30}
+								],
+								radius: '50%'
+							},
+							series: [
+								{
+									name: 'Budget vs spending',
+									type: 'radar',
+									data: [
+										{
+											value: [data_C31, data_C32, data_C33, data_C34, data_C35, data_C36],
+
+
+											name: 'Allocated Budget',
+											lineStyle: {
+												normal: {
+													color: '#ff5733'
+												}
+											}
+										}
+
+
+									]
+								}
+							]
+						};
+
+						option && myChart.setOption(option);
+
+					}
+				})
+			}
+
+		
+
+
+			//详情模态页面----------------------------------------------------------------------------
+			function math_data(index_num,year,pElement) {
+				$.ajax({
+
+					url:'/index/getCThreeLevelController',
+					type:'get',
+					dataType:'json',
+					data:{
+						index_num:index_num,
+						year:year,
+					},
+					success:function (data) {
+
+						var arraydata=new Array();
+						var count = 0;
+
+						var sum = function(x,y){ return x+y;};　　//求和函数
+						var square = function(x){ return x*x;};　　//数组中每个元素求它的平方
+
+
+						var compare = function (x, y) {//比较函数
+							if (x < y) {
+								return -1;
+							} else if (x > y) {
+								return 1;
+							} else {
+								return 0;
+							}
+						};
+
+						var mean;
+						var deviations;
+						var stddev
+						$.each(data,function (index,item) {
+							count = count+1;
+
+							arraydata[index] = item.data;
+							// console.log("index==="+index);
+							// console.log("item.data=="+item.data);
+							// console.log("arraydata[index]==="+arraydata[index])
+
+
+
+							if (count == 12) {
+								count=0;
+								mean = arraydata.reduce(sum) / arraydata.length;
+								deviations = arraydata.map(function (x) {
+									return x - mean;
+								});
+								stddev = Math.sqrt(deviations.map(square).reduce(sum)/(arraydata.length-1));
+								var max = Math.max.apply(null, arraydata)
+								var min = Math.min.apply(null, arraydata)
+								var mid; //中位数
+								arraydata.sort(compare); //数组排序
+								if (arraydata.length % 2 == 0) {
+									mid = (arraydata[arraydata.length / 2] + arraydata[arraydata.length / 2 + 1]) / 2
+								}
+								if (arraydata.length % 2 != 0) {
+									mid = arraydata[(arraydata.length + 1) / 2]
+								}
+
+
+								// console.log("平均值：" + mean);
+								// console.log("偏差：" + deviations);
+								// console.log("标准差："+stddev);
+								// console.log("最大值：" + max);
+								// console.log("最小值：" + min);
+								//
+								// console.log("Pbiaoqinashifoucunzai"+pElement);
+
+								// 找到具有ID "p_B1" 的 <p> 元素
+
+								// 创建要显示在 <p> 元素中的文本
+								var textToDisplay =
+										"平均值：" + mean + "<br>" +
+										"标准差：" + stddev + "<br>" +
+										"最大值：" + max + "<br>" +
+										"最小值：" + min+	"<br>"+
+										"中位数：" + mid+"<br>";
+
+								// 更新 <p> 元素的文本内容
+								pElement.html(textToDisplay);
+
+
+
+							}
+
+
+
+
+						})
+
+
+
+
+
+					}
+
+
+				});
+			}
+
+
+
+
+
+			//详情模态按钮---------------------------------------------
+			function Modal_XiangQing_All(){
+				shape_modal_B2();
+				shape_modal_B3();
+				shape_modal_B1();
+				shape_modal_B4();
+				shape_modal_B5();
+				shape_modal_B6();
+				shape_modal_zonghenengxiao();
+			}
+
+
+
+			//----------------------------------------------------------
+
+			//用于显示模态窗口中的图表
+
+
+
+			function shape_modal_B2(){
+
+				//模态窗口
+				// 获取按钮和模态框元素
+				var modal = $("#myModal_B2");
+				var closeModal = $("#closeModal_B2");
+
+
+				//测试类单击
+
+				$("#openModalBtn_B2").click(function() {
+					modal.css("display","block");
+
+				// 初始化 ECharts 图表
+				var chartDom = $("#chartContainer_B2")[0];
+				var myChart_modal = echarts.init(chartDom);
+				var p_B2 = $("#p_B2");
+				math_data('C32',$('#yearChose').val(),p_B2)
+				find_index_C_chart('C32',$('#yearChose').val(),myChart_modal)
+
+
+				});
+
+
+
+				closeModal.click ( function() {
+					modal.css("display","none");
+
+				});
+
+				// 点击模态框外部也可以隐藏模态框
+				$(window).click(function(event) {
+					if (event.target == modal[0]) {
+						modal.css("display", "none");
+					}
+				});
+
+
+
+			}
+
+			function shape_modal_B3(){
+
+			//模态窗口
+			// 获取按钮和模态框元素
+			var modal = $("#myModal_B3");
+			var closeModal = $("#closeModal_B3");
+
+
+			//测试类单击
+
+			$("#openModalBtn_B3").click(function() {
+				modal.css("display","block");
+
+			// 初始化 ECharts 图表
+			var chartDom = $("#chartContainer_B3")[0];
+			var myChart_modal = echarts.init(chartDom);
+			var p_B3 = $("#p_B3");
+			math_data('C33',$('#yearChose').val(),p_B3)
+			find_index_C_chart('C33',$('#yearChose').val(),myChart_modal)
+
+			});
+
+
+
+			closeModal.click ( function() {
+				modal.css("display","none");
+			
+			});
+
+			// 点击模态框外部也可以隐藏模态框
+			$(window).click(function(event) {
+				if (event.target == modal[0]) {
+					modal.css("display", "none");
+				}
+			});
+
+
+
+			}
+
+
+
+			function shape_modal_B1(){
+
+			//模态窗口
+
+			var modal = $("#myModal_B1");
+			var closeModal = $("#closeModal_B1");
+
+
+			//测试类单击
+
+			$("#openModalBtn_B1").click(function() {
+
+				modal.css("display","block");
+
+				// 初始化 ECharts 图表
+				var chartDom = $("#chartContainer_B1")[0];
+				var myChart_modal = echarts.init(chartDom);
+				var p_B1 = $("#p_B1");
+				math_data('C31',$('#yearChose').val(),p_B1)
+				find_index_C_chart('C31',$('#yearChose').val(),myChart_modal)
+
+			});
+
+
+
+			closeModal.click ( function() {
+				modal.css("display","none");
+
+			});
+
+			// 点击模态框外部也可以隐藏模态框
+			$(window).click(function(event) {
+				if (event.target == modal[0]) {
+					modal.css("display", "none");
+				}
+			});
+
+
+
+			}
+
+
+
+			function shape_modal_B4(){
+
+				//模态窗口
+				// 获取按钮和模态框元素
+				var modal = $("#myModal_B4");
+				var closeModal = $("#closeModal_B4");
+
+
+				//测试类单击
+
+				$("#openModalBtn_B4").click(function() {
+
+					modal.css("display","block");
+					console.log("openModalBtn_B4点击事件触发");
+					// 初始化 ECharts 图表
+					var chartDom = $("#chartContainer_B4")[0];
+					var myChart_modal = echarts.init(chartDom);
+					var p_B4 = $("#p_B4");
+					math_data('C34',$('#yearChose').val(),p_B4)
+					find_index_C_chart('C34',$('#yearChose').val(),myChart_modal)
+
+				});
+
+
+
+				closeModal.click ( function() {
+					modal.css("display","none");
+
+				});
+
+				// 点击模态框外部也可以隐藏模态框
+				$(window).click(function(event) {
+					if (event.target == modal[0]) {
+						modal.css("display", "none");
+					}
+				});
+
+
+
+			}
+
+
+
+			function shape_modal_B5(){
+
+				//模态窗口
+
+				var modal = $("#myModal_B5");
+				var closeModal = $("#closeModal_B5");
+
+
+				//测试类单击
+
+				$("#openModalBtn_B5").click(function() {
+
+					modal.css("display","block");
+
+					// 初始化 ECharts 图表
+					var chartDom = $("#chartContainer_B5")[0];
+					var myChart_modal = echarts.init(chartDom);
+					var p_B5 = $("#p_B5");
+					math_data('C35',$('#yearChose').val(),p_B5)
+					find_index_C_chart('C35',$('#yearChose').val(),myChart_modal)
+
+				});
+
+
+
+				closeModal.click ( function() {
+					modal.css("display","none");
+
+				});
+
+				// 点击模态框外部也可以隐藏模态框
+				$(window).click(function(event) {
+					if (event.target == modal[0]) {
+						modal.css("display", "none");
+					}
+				});
+
+
+
+			}
+
+
+			function shape_modal_B6(){
+
+				//模态窗口
+
+				var modal = $("#myModal_B6");
+				var closeModal = $("#closeModal_B6");
+
+
+				//测试类单击
+
+				$("#openModalBtn_B6").click(function() {
+
+					modal.css("display","block");
+
+					// 初始化 ECharts 图表
+					var chartDom = $("#chartContainer_B6")[0];
+					var myChart_modal = echarts.init(chartDom);
+					var p_B6 = $("#p_B6");
+					math_data('C36',$('#yearChose').val(),p_B6)
+					find_index_C_chart('C36',$('#yearChose').val(),myChart_modal)
+
+				});
+
+
+
+				closeModal.click ( function() {
+					modal.css("display","none");
+
+				});
+
+				// 点击模态框外部也可以隐藏模态框
+				$(window).click(function(event) {
+					if (event.target == modal[0]) {
+						modal.css("display", "none");
+					}
+				});
+
+
+
+			}
+
+
+			function shape_modal_zonghenengxiao(){
+
+			//模态窗口
+
+			var modal = $("#myModal_zonghenengxiao");
+			var closeModal = $("#closeModal_zonghenengxiao");
+
+
+			//测试类单击
+
+			$("#openModalBtn_zonghenengxiao").click(function() {
+
+				modal.css("display","block");
+
+				var p_zonghenengxiao = $("#p_zonghenengxiao");
+
+				$.ajax({
+
+					url:'/index/getTwoYearBLevel',
+					type:'get',
+					dataType:'json',
+					data:{
+						index_num:'B3',
+					},
+					success:function (data) {
+
+						var arraydata=new Array();
+						var count = 0;
+
+						var sum = function(x,y){ return x+y;};　　//求和函数
+						var square = function(x){ return x*x;};　　//数组中每个元素求它的平方
+
+
+						var compare = function (x, y) {//比较函数
+							if (x < y) {
+								return -1;
+							} else if (x > y) {
+								return 1;
+							} else {
+								return 0;
+							}
+						};
+
+						var mean;
+						var deviations;
+						var stddev
+						$.each(data,function (index,item) {
+							if (index>11) {
+								count = count + 1;
+
+								arraydata[index-12] = item.data;
+								// console.log("index==="+index);
+								// console.log("item.data=="+item.data);
+								// console.log("arraydata[index]==="+arraydata[index])
+
+
+								if (count == 12) {
+									count=0;
+									mean = arraydata.reduce(sum) / arraydata.length;
+									deviations = arraydata.map(function (x) {
+										return x - mean;
+									});
+									stddev = Math.sqrt(deviations.map(square).reduce(sum)/(arraydata.length-1));
+									var max = Math.max.apply(null, arraydata)
+									var min = Math.min.apply(null, arraydata)
+									var mid; //中位数
+									arraydata.sort(compare); //数组排序
+									if (arraydata.length % 2 == 0) {
+										mid = (arraydata[arraydata.length / 2] + arraydata[arraydata.length / 2 + 1]) / 2
+									}
+									if (arraydata.length % 2 != 0) {
+										mid = arraydata[(arraydata.length + 1) / 2]
+									}
+
+
+									// console.log("平均值：" + mean);
+									// console.log("偏差：" + deviations);
+									// console.log("标准差："+stddev);
+									// console.log("最大值：" + max);
+									// console.log("最小值：" + min);
+									//
+									// console.log("Pbiaoqinashifoucunzai"+pElement);
+
+									// 找到具有ID "p_B1" 的 <p> 元素
+
+									// 创建要显示在 <p> 元素中的文本
+									var textToDisplay =
+											"最新一年的数据：" +  "<br>" +
+											"平均值：" + mean + "<br>" +
+											"标准差：" + stddev + "<br>" +
+											"最大值：" + max + "<br>" +
+											"最小值：" + min+	"<br>"+
+											"中位数：" + mid+"<br>";
+
+									// 更新 <p> 元素的文本内容
+									p_zonghenengxiao.html(textToDisplay);
+
+
+
+								}
+
+							}
+
+
+
+
+
+
+						})
+
+
+
+
+
+					}
+
+
+				});
+				
+			});
+
+
+
+			closeModal.click ( function() {
+				modal.css("display","none");
+
+			});
+
+			// 点击模态框外部也可以隐藏模态框
+			$(window).click(function(event) {
+				if (event.target == modal[0]) {
+					modal.css("display", "none");
+				}
+			});
+
+
+
+			}
+			
+
+		//详情模态页面----------------------------------------------------------------------------
+
+
+
+
+		</script>
+		
+
+	</body>
+</html>

@@ -1,0 +1,111 @@
+<!-- 123           -->
+					<div class="xpanel-wrapper xpanel-wrapper-30"  style="margin-top: 24px">
+						<div class="xpanel xpanel-l-t B4">
+							<div class="title">B4 制丝工艺质量过程控制</div>
+							<div class="xpanel-chart" id="chart_B4_one_level"></div>
+						</div>
+					</div>
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-l-b">
+							<div class="title">B5 卷接包工艺质量过程控制</div>
+							<div class="xpanel-chart" id="chart_B5_one_level"></div>
+						</div>
+					</div>
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-l-b">
+
+							<a href="B1_two.html" class="title">B6 节能减排</a>
+							<span ><button class="btn_details"  id="openModalBtn_B6">详情</button></span>
+							<div class="xpanel-chart" id="chart_B6_one_level"></div>
+						</div>
+					</div>
+				</div>
+				<!-- 123     -->
+				<div class="col col-c">
+					<div class="xpanel-wrapper xpanel-wrapper-60">
+						<div class="xpanel no-bg">  
+							<div class="xpanel xpanel-c-b" style="margin-top: 69px;">
+								<div class="title title-long">综合效能分析</div>
+								<div class="xpanel" id="chart_zonghenengxiaofenxi"></div>
+							</div>							
+						</div>
+					</div>
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-c-b">
+							<div class="title title-long">综合效能</div>
+							<div class="xpanel-chart" id="chart_zonghenengxiao"></div>
+						</div>
+					</div>
+				</div>
+				<!-- 456       -->
+				<div class="col col-r">
+					<div class="xpanel-wrapper xpanel-wrapper-30" style="margin-top: 68px">
+						<div class="xpanel xpanel-r-t">
+							<!-- <a href="B1_two.html"><div class="title">B1 计划执行
+								<span ><button class="btn_details"  id="openModalBtn_B1">详情</button></span>
+							</div></a> -->
+							<a href="B1_two.html" class="title">B1 计划执行</a>
+							<span ><button class="btn_details"  id="openModalBtn_B1">详情</button></span>
+
+
+
+
+							<div class="modal" id="myModal_B1">
+
+								<div class="modal-content">
+									<span class="close" id="closeModal_B1">&times;</span>
+
+								  <div id="chartContainer_B1" >
+								  </div>
+								  <p style="margin-top: 30px; color: aliceblue;">
+									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+								</div>
+							</div>
+
+
+							<div class="xpanel-chart" id="chart_B1_one_level"></div>
+						</div>
+					</div>
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-r-m">
+							<a href="B1_two.html" class="title">B2 设备效率</a>
+							<span ><button class="btn_details"  id="openModalBtn_B2">详情</button></span>
+							<div class="modal" id="myModal_B2">
+
+								<div class="modal-content">
+									<span class="close" id="closeModal_B2">&times;</span>
+
+								  <div id="chartContainer_B2" >
+								  </div>
+								  <p style="margin-top: 30px; color: aliceblue;">
+									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+								</div>
+							</div>
+
+							<div class="xpanel-chart" id="chart_B2_one_level"></div>
+						</div>
+					</div>
+					<div class="xpanel-wrapper xpanel-wrapper-30">
+						<div class="xpanel xpanel-r-b">
+							
+
+							<a href="B1_two.html" class="title">B3 生产耗能</a>
+							<span ><button class="btn_details"  id="openModalBtn_B3">详情</button></span>
+
+
+							<div class="modal" id="myModal_B3">
+
+								<div class="modal-content">
+									<span class="close" id="closeModal_B3">&times;</span>
+
+								  <div id="chartContainer_B3" >
+								  </div>
+								  <p style="margin-top: 30px; color: aliceblue;">
+									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+								</div>
+							</div>
+
+							
+							<div class="xpanel-chart" id="chart_B3_one_level"></div>
+
+				<!-- 456   -->
