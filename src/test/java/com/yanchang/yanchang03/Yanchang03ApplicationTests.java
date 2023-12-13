@@ -1,5 +1,6 @@
 package com.yanchang.yanchang03;
 
+import com.yanchang.service.Main;
 import com.yanchang.service.main_score;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,16 @@ class Yanchang03ApplicationTests {
     void getConnection()  {
         main_score.computeEfficients(2021);
     }
+
+    @Resource
+    Main main;
+
+    @Test
+    void Main_test()  {
+        main.Search();
+    }
+
+
+
 
 }
