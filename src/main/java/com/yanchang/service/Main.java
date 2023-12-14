@@ -2,7 +2,9 @@ package com.yanchang.service;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 
+import com.yanchang.entity.Data_01;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -41,10 +43,21 @@ public class Main {
 
             String []feature_name_C = {"C11","C21","C22","C23","C24","C31","C32","C33","C34","C35","C36","C41","C42","C43","C44","C51","C52","C53","C54","C55","C61","C62","C63"};
 
+
+            //存储数据 传递给前端
+            List<Data_01> data01List = null;
+            String information = null;
             //--------------------------A--------------------------------------------------------
+
             double min_A = Data_sort[29][0];
             int min_A_month = Index_sort[29][0];
             System.out.println("A指标年度最小值是：" + min_A + "      A指标年度最小值所在月份是：" + min_A_month + "月");
+            information = "A指标年度最小值是：" + min_A + "      A指标年度最小值所在月份是：" + min_A_month + "月";
+            Data_01 data1 = null;
+            data1.setId("A");
+            data1.setInformation(information);
+
+            data01List.add(data1);
 
 
 
