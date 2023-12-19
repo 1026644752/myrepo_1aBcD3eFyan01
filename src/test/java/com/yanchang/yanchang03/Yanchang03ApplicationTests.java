@@ -22,11 +22,13 @@ class Yanchang03ApplicationTests {
         main_score.computeEfficients(2021);
     }
 
+
     @Resource
     Main main;
 
     @Test
     void Main_test()  {
+        main_score.Compute(2021);
         main.Search();
     }
 

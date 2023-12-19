@@ -797,7 +797,7 @@ public class main_score {
             c_three_levelMapper.insertC_three_level(C63.get(i));
         }
 
-        FileOutputStream output1 = null;
+    /*    FileOutputStream output1 = null;
         try {
             output1 = new FileOutputStream("SCORE_MATRIX.xlsx");
         } catch (FileNotFoundException ex) {
@@ -900,6 +900,153 @@ public class main_score {
 
             Cell cell29= row[29].createCell(i);
             cell29.setCellValue(SA[i][0]);
+        }
+        try {
+            outputWorkbook1.write(output1);
+            output1.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }*/
+    }
+
+
+
+    public void Compute(int year){
+        FileOutputStream output1 = null;
+        try {
+            output1 = new FileOutputStream("SCORE_MATRIX.xlsx");
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        Workbook outputWorkbook1 = new XSSFWorkbook();
+        Sheet outputSheet1 = outputWorkbook1.createSheet("Scores");
+
+        Row []row =new Row[30];
+        for (int i = 0; i < 30; i++) {
+            row[i] = outputSheet1.createRow(i);
+        }
+        List<Three_Level_Data> c11 = c_three_levelMapper.selectChart("C11", year);
+        List<Three_Level_Data> c21 = c_three_levelMapper.selectChart("C21", year);
+        List<Three_Level_Data> c22 = c_three_levelMapper.selectChart("C22", year);
+        List<Three_Level_Data> c23 = c_three_levelMapper.selectChart("C23", year);
+        List<Three_Level_Data> c24 = c_three_levelMapper.selectChart("C24", year);
+        List<Three_Level_Data> c31 = c_three_levelMapper.selectChart("C31", year);
+        List<Three_Level_Data> c32 = c_three_levelMapper.selectChart("C32", year);
+        List<Three_Level_Data> c33 = c_three_levelMapper.selectChart("C33", year);
+        List<Three_Level_Data> c34 = c_three_levelMapper.selectChart("C34", year);
+        List<Three_Level_Data> c35 = c_three_levelMapper.selectChart("C35", year);
+        List<Three_Level_Data> c36 = c_three_levelMapper.selectChart("C36", year);
+        List<Three_Level_Data> c41 = c_three_levelMapper.selectChart("C41", year);
+        List<Three_Level_Data> c42 = c_three_levelMapper.selectChart("C42", year);
+        List<Three_Level_Data> c43 = c_three_levelMapper.selectChart("C43", year);
+        List<Three_Level_Data> c44 = c_three_levelMapper.selectChart("C44", year);
+        List<Three_Level_Data> c51 = c_three_levelMapper.selectChart("C51", year);
+        List<Three_Level_Data> c52 = c_three_levelMapper.selectChart("C52", year);
+        List<Three_Level_Data> c53 = c_three_levelMapper.selectChart("C53", year);
+        List<Three_Level_Data> c54 = c_three_levelMapper.selectChart("C54", year);
+        List<Three_Level_Data> c55 = c_three_levelMapper.selectChart("C55", year);
+        List<Three_Level_Data> c61 = c_three_levelMapper.selectChart("C61", year);
+        List<Three_Level_Data> c62 = c_three_levelMapper.selectChart("C62", year);
+        List<Three_Level_Data> c63 = c_three_levelMapper.selectChart("C63", year);
+
+        List<Two_Level_Data> b1 = b_two_levelMapper.selectChart("B1", year);
+        List<Two_Level_Data> b2 = b_two_levelMapper.selectChart("B2", year);
+        List<Two_Level_Data> b3 = b_two_levelMapper.selectChart("B3", year);
+        List<Two_Level_Data> b4 = b_two_levelMapper.selectChart("B4", year);
+        List<Two_Level_Data> b5 = b_two_levelMapper.selectChart("B5", year);
+        List<Two_Level_Data> b6 = b_two_levelMapper.selectChart("B6", year);
+
+        List<One_Level_Data> a = a_one_levelMapper.select(year);
+
+        for (int i = 0; i < 12; i++) {
+            Cell cell0= row[0].createCell(i);
+            cell0.setCellValue(c11.get(i).getData());
+            Cell cell1= row[1].createCell(i);
+            cell1.setCellValue(c21.get(i).getData());
+
+            Cell cell2= row[2].createCell(i);
+            cell2.setCellValue(c22.get(i).getData());
+
+            Cell cell3= row[3].createCell(i);
+            cell3.setCellValue(c23.get(i).getData());
+
+            Cell cell4= row[4].createCell(i);
+            cell4.setCellValue(c24.get(i).getData());
+
+            Cell cell5= row[5].createCell(i);
+            cell5.setCellValue(c31.get(i).getData());
+
+            Cell cell6= row[6].createCell(i);
+            cell6.setCellValue(c32.get(i).getData());
+
+            Cell cell7= row[7].createCell(i);
+            cell7.setCellValue(c33.get(i).getData());
+
+            Cell cell8= row[8].createCell(i);
+            cell8.setCellValue(c34.get(i).getData());
+
+            Cell cell9= row[9].createCell(i);
+            cell9.setCellValue(c35.get(i).getData());
+
+            Cell cell10= row[10].createCell(i);
+            cell10.setCellValue(c36.get(i).getData());
+
+            Cell cell11= row[11].createCell(i);
+            cell11.setCellValue(c41.get(i).getData());
+
+            Cell cell12= row[12].createCell(i);
+            cell12.setCellValue(c42.get(i).getData());
+
+            Cell cell13= row[13].createCell(i);
+            cell13.setCellValue(c43.get(i).getData());
+
+            Cell cell14= row[14].createCell(i);
+            cell14.setCellValue(c44.get(i).getData());
+
+            Cell cell15= row[15].createCell(i);
+            cell15.setCellValue(c51.get(i).getData());
+
+            Cell cell16= row[16].createCell(i);
+            cell16.setCellValue(c52.get(i).getData());
+
+            Cell cell17= row[17].createCell(i);
+            cell17.setCellValue(c53.get(i).getData());
+
+            Cell cell18= row[18].createCell(i);
+            cell18.setCellValue(c54.get(i).getData());
+
+            Cell cell19= row[19].createCell(i);
+            cell19.setCellValue(c55.get(i).getData());
+
+            Cell cell20= row[20].createCell(i);
+            cell20.setCellValue(c61.get(i).getData());
+
+            Cell cell21= row[21].createCell(i);
+            cell21.setCellValue(c62.get(i).getData());
+
+            Cell cell22= row[22].createCell(i);
+            cell22.setCellValue(c63.get(i).getData());
+
+            Cell cell23= row[23].createCell(i);
+            cell23.setCellValue(b1.get(i).getData());
+
+            Cell cell24= row[24].createCell(i);
+            cell24.setCellValue(b2.get(i).getData());
+
+            Cell cell25= row[25].createCell(i);
+            cell25.setCellValue(b3.get(i).getData());
+
+            Cell cell26= row[26].createCell(i);
+            cell26.setCellValue(b4.get(i).getData());
+
+            Cell cell27= row[27].createCell(i);
+            cell27.setCellValue(b5.get(i).getData());
+
+            Cell cell28= row[28].createCell(i);
+            cell28.setCellValue(b6.get(i).getData());
+
+            Cell cell29= row[29].createCell(i);
+            cell29.setCellValue(a.get(i).getData());
         }
         try {
             outputWorkbook1.write(output1);

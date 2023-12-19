@@ -2,6 +2,7 @@ package com.yanchang.service;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.yanchang.entity.Data_01;
@@ -41,11 +42,17 @@ public class Main {
                 sort(Data_sort[i], Index_sort[i]);
             }
 
+            for (int i = 0; i < mFea; i++) {
+                for (int j = 0; j < nSmp; j++) {
+                    Index_sort[i][j] ++;
+                }
+            }
+
             String []feature_name_C = {"C11","C21","C22","C23","C24","C31","C32","C33","C34","C35","C36","C41","C42","C43","C44","C51","C52","C53","C54","C55","C61","C62","C63"};
 
 
             //存储数据 传递给前端
-            List<Data_01> data01List = null;
+            List<Data_01> data01List = new ArrayList<Data_01>();
             String information = null;
             //--------------------------A--------------------------------------------------------
 
@@ -53,7 +60,7 @@ public class Main {
             int min_A_month = Index_sort[29][0];
             System.out.println("A指标年度最小值是：" + min_A + "      A指标年度最小值所在月份是：" + min_A_month + "月");
             information = "A指标年度最小值是：" + min_A + "      A指标年度最小值所在月份是：" + min_A_month + "月";
-            Data_01 data1 = null;
+            Data_01 data1 = new Data_01("A","A指标年度最小值是：" + min_A + "      A指标年度最小值所在月份是：" + min_A_month + "月");
             data1.setId("A");
             data1.setInformation(information);
 
