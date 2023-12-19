@@ -53,17 +53,13 @@ public class Main {
 
             //存储数据 传递给前端
             List<Data_01> data01List = new ArrayList<Data_01>();
-            String information = null;
+            Data_01 data1 = null;
             //--------------------------A--------------------------------------------------------
 
             double min_A = Data_sort[29][0];
             int min_A_month = Index_sort[29][0];
             System.out.println("A指标年度最小值是：" + min_A + "      A指标年度最小值所在月份是：" + min_A_month + "月");
-            information = "A指标年度最小值是：" + min_A + "      A指标年度最小值所在月份是：" + min_A_month + "月";
-            Data_01 data1 = new Data_01("A","A指标年度最小值是：" + min_A + "      A指标年度最小值所在月份是：" + min_A_month + "月");
-            data1.setId("A");
-            data1.setInformation(information);
-
+            data1 = new Data_01("A","A指标年度最小值是：" + min_A + "      A指标年度最小值所在月份是：" + min_A_month + "月");
             data01List.add(data1);
 
 
@@ -71,34 +67,50 @@ public class Main {
             int index_min_A_Cfeature = findIndex(Index_sort, 0,0,22, min_A_month);
             System.out.println("对综合效能指标A最低值影响最大的C级指标是：");
             System.out.println(feature_name_C[index_min_A_Cfeature]);
+            data1 = new Data_01("A","对综合效能指标A最低值影响最大的C级指标是：" + feature_name_C[index_min_A_Cfeature]);
+            data01List.add(data1);
 
 
             double max_A = Data_sort[29][nSmp - 1];
             int max_A_month = Index_sort[29][nSmp - 1];
             System.out.println("A指标年度最大值是：" + max_A + "      A指标年度最大值所在月份是：" + max_A_month + "月");
+            data1 = new Data_01("A","A指标年度最大值是：" + max_A + "      A指标年度最大值所在月份是：" + max_A_month + "月");
+            data01List.add(data1);
 
 
             int index_max_A_Cfeature = findIndex(Index_sort, nSmp - 1,0,22, max_A_month);
             System.out.println("对综合效能指标A最高值影响最大的C级指标是：");
             System.out.println(feature_name_C[index_max_A_Cfeature]);
+            data1 = new Data_01("A","对综合效能指标A最高值影响最大的C级指标是："+feature_name_C[index_max_A_Cfeature]);
+            data01List.add(data1);
 
 
             //B1---------------------------------------------------------------------------------------------------------
             double min_B1 = Data_sort[23][0];
             int min_B1_month = Index_sort[23][0];
             System.out.println("B1指标年度最小值是：" + min_B1 + "      B1指标年度最小值所在月份是：" + min_B1_month + "月");
+            data1 = new Data_01("B1","B1指标年度最小值是：" + min_B1 + "      B1指标年度最小值所在月份是：" + min_B1_month + "月");
+            data01List.add(data1);
 
             int index_min_B1_Cfeature = findIndex(Index_sort, 0,0,0, min_B1_month);
             System.out.println("对综合效能指标B1最低值影响最大的C级指标是：");
             System.out.println(feature_name_C[index_min_B1_Cfeature]);
+            data1 = new Data_01("B1","对综合效能指标B1最低值影响最大的C级指标是："+feature_name_C[index_min_B1_Cfeature]);
+            data01List.add(data1);
 
             double max_B1 = Data_sort[23][nSmp - 1];
             int max_B1_month = Index_sort[23][nSmp - 1];
             System.out.println("B1指标年度最大值是：" + max_B1 + "B1指标年度最大值所在月份是：" + max_B1_month + "月");
+            data1 = new Data_01("B1","B1指标年度最大值是：" + max_B1 + "B1指标年度最大值所在月份是：" + max_B1_month + "月");
+            data01List.add(data1);
 
             int index_max_B1_Cfeature = findIndex(Index_sort, nSmp - 1,0,0, max_B1_month);
             System.out.println("对综合效能指标B1最高值影响最大的C级指标是：");
             System.out.println(feature_name_C[index_max_B1_Cfeature]);
+            data1 = new Data_01("B1","对综合效能指标B1最高值影响最大的C级指标是："+feature_name_C[index_max_B1_Cfeature]);
+            data01List.add(data1);
+
+
             //B2-------------------------------------------------------------------------------------------------------
             double min_B2 = Data_sort[24][0];
             int min_B2_month = Index_sort[24][0];
