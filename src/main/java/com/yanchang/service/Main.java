@@ -28,6 +28,8 @@ public class Main {
                 }
             }
 
+            //kjj
+
             int mFea = Data.length;
             int nSmp = Data[0].length;
 
