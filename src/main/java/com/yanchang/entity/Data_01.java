@@ -11,4 +11,10 @@ public class Data_01 {
     private  String id;//用来判断是那个指标的
     private String information; //存储传递的信息
 
+    // 构造函数
+    public Data_01(String id, String information) {
+        this.id = id;
+        this.information = information;
+    }
+
 }

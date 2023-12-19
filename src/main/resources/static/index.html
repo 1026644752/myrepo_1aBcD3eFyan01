@@ -815,6 +815,46 @@
 
 
 			//详情模态页面----------------------------------------------------------------------------
+			//测试传递计算的数据
+			function math_test(index_num,year,pElement) {
+				$.ajax({
+
+					url:'/getTest',
+					type:'get',
+					dataType:'json',
+					data:{
+
+					},
+					success:function (data) {
+
+
+
+
+
+								var textToDisplay =
+										"平均值：" + mean + "<br>" +
+										"标准差：" + stddev + "<br>" +
+										"最大值：" + max + "<br>" +
+										"最小值：" + min+	"<br>"+
+										"中位数：" + mid+"<br>";
+
+								// 更新 <p> 元素的文本内容
+								pElement.html(textToDisplay);
+
+
+
+
+
+
+					}
+
+
+				});
+			}
+
+
+
+
 			//详情模态按钮---------------------------------------------
 			function Modal_XiangQing_All(){
 				shape_modal_B2();

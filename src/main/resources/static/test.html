@@ -2,35 +2,90 @@
 <html>
 <head>
     <title>Modal 示例</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
 <button id="openModalButton">打开 Modal</button>
 
 <!-- 模态框 -->
-<div id="myModal" class="modal">
-    <div class="modal-content">
+    <div>
         <span id="closeModal" class="close">&times;</span>
-        <p id="hiddenParagraph">sdfsdfsdf</p>
+        <p id="hiddenAParagraph">sdfsdfsdf</p>
+        <p id="hiddenBParagraph">sdfsdfsdf</p>
+
     </div>
-</div>
 
 <!-- JavaScript 代码 -->
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
 <script>
-    var modal = document.getElementById("myModal");
-    var hiddenParagraph = document.getElementById("hiddenParagraph");
-    var openModalButton = document.getElementById("openModalButton");
-    var closeModal = document.getElementById("closeModal");
+    
+    
+    $(function () {
 
-    // 当点击按钮时，显示模态框并添加内容到 <p> 标签
-    openModalButton.addEventListener("click", function() {
-        modal.style.display = "block";
-        hiddenParagraph.textContent = "这是在点击后添加的文本内容。";
+        var button = $('#openModalButton');
+        button.click(function () {
+            var pAElement = $('#hiddenAParagraph');
+            var pBElement = $('#hiddenBParagraph');
+
+
+            math_test(pAElement,pBElement);
+        })
+
+
+
+
     });
 
-    // 当点击关闭按钮时，关闭模态框
-    closeModal.addEventListener("click", function() {
-        modal.style.display = "none";
-    });
+
+
+    function math_test(pAElement,pBElement) {
+        $.ajax({
+
+            url:'/getTest',
+            type:'get',
+            dataType:'json',
+            // data:{
+            //
+            // },
+            success:function (data) {
+
+
+                var textAToDisplay = "";
+                var textBToDisplay = "";
+
+                $.each(data,function (index,element) {
+                    switch (element.id) {
+                        case 'A' : textAToDisplay = textAToDisplay + "<br>" + element.information; break;
+                        case 'B' : textBToDisplay = textBToDisplay + "<br>" + element.information; break;
+
+                    }
+
+
+                });
+
+
+
+                console.log(textAToDisplay);
+                console.log(textBToDisplay);
+
+
+                // 更新 <p> 元素的文本内容
+                pAElement.html(textAToDisplay);
+                pBElement.html(textBToDisplay);
+
+
+
+            }
+
+
+        });
+    }
 </script>
 </body>
 </html>
