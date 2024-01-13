@@ -22,14 +22,14 @@ public class GreyRelationAnalysis {
          Workbook workbook = new XSSFWorkbook(fis);
          Sheet sheet = workbook.getSheetAt(0);
 
-         // Read the data
+         // 读取数据
          double[] x0 = getRowData(sheet.getRow(29));
          double[][] C_data = new double[23][12];
          for (int i = 0; i < 23; i++) {
             C_data[i] = getRowData(sheet.getRow(i));
          }
          //计算各指标与综合效能指标A的全局最小分量离差绝对值与最大分量离差绝对值--------------------------------------------------
-         // Normalize x0
+         // 归一化（首项归一化）
          double x0_1st = x0[0];
          for (int i = 0; i < x0.length; i++) {
             x0[i] /= x0_1st;
@@ -44,7 +44,7 @@ public class GreyRelationAnalysis {
             }
          }
 
-         // Calculate global min and max
+         // 计算各指标与综合效能指标A的全局最小分量离差绝对值与最大分量离差绝对值
          double [] global_min = new double[23];
          double [] global_max = new double[23];
          for (int i = 0; i < 23; i++) {
@@ -66,7 +66,7 @@ public class GreyRelationAnalysis {
       //计算各指标与综合效能指标A的全局最小分量离差绝对值与最大分量离差绝对值--------------------------------------------------end
 
 
-         // 灰色关联系数向量
+         // 计算灰色关联系数向量
          double[][] GRD = new double[23][12];
          for (int i = 0; i < 23; i++) {
             for (int j = 0; j < 12; j++) {

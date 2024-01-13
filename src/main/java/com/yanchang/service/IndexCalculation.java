@@ -35,7 +35,7 @@ public class IndexCalculation {
                 B_data[i] = getRowData(data, i + 23);
             }
 
-            // Calculate mean
+            // 分别计算各C级指标（C11生产计划完成率、C21单位产量维修时长、…）1-12月某一指标效能指数的平均值（样本均值）
             double[] Mean_C = new double[C_data.length];
             for (int i = 0; i < C_data.length; i++) {
                 Mean_C[i] = calculateMean(C_data[i]);
@@ -47,7 +47,7 @@ public class IndexCalculation {
 
             double Mean_A = calculateMean(A_data);
 
-            // Calculate variance
+            // 对各C级指标求方差（样本方差）：
             double[] Var_C = new double[C_data.length];
 
             for (int i = 0; i < C_data.length; i++) {
@@ -63,12 +63,12 @@ public class IndexCalculation {
             double Var_A = calculateVariance(A_data, Mean_A);
 
 
-            // Calculate standard deviation
+            //对各C级指标求标准差，标准差是方差的平方根。
             double[] Std_C = calculateStandardDeviation(Var_C);
             double[] Std_B = calculateStandardDeviation(Var_B);
             double Std_A = Math.sqrt(Var_A);
 
-            // Calculate range
+            // 计算极差
             double[] Range_C = new double[C_data.length];
             for (int i = 0; i < Range_C.length; i++) {
                 Range_C[i] = calculateRange(C_data[i]);
@@ -79,11 +79,11 @@ public class IndexCalculation {
             }
             double Range_A = calculateRange(A_data);
 
-            // Calculate covariance
+            // 协方差
             double[][] Cov_C = calculateCovariance(C_data);
             double[][] Cov_B = calculateCovariance(B_data);
 
-            // Calculate correlation coefficient
+            // 相关系数
             double[][] Corr_C_r = calculateCorrelationCoefficient(C_data);
             double[][] Corr_B_r = calculateCorrelationCoefficient(B_data);
 

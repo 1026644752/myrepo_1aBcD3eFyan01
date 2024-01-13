@@ -51,7 +51,7 @@
 								  <div id="chartContainer_B1" >
 								  </div>
 								  <p id="p_B1" style="margin-top: 30px; color: aliceblue;">
-									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>
+<!--									设备效率，2023年的整体效能指数中，最大值为98%，i该值出现在10月份。最小值为90%，分别出现在1月，3月。该年度平均值为95%，中值为95%。总体趋势稳中向上，同比2022年，2023年3月比2022年低5%，2023年10月比2022年高7%1</p>-->
 								</div>
 							</div>
 							<div class="xpanel-chart" id="chart_B1_one_level"></div>
@@ -116,7 +116,7 @@
 				</div>
 				<!-- 123     -->
 				<div class="col col-c">
-					<div class="xpanel-wrapper xpanel-wrapper-60">
+					<div class="xpanel-wrapper xpanel-wrapper-40">
 						<div class="xpanel no-bg">  
 							<div class="xpanel xpanel-c-b" style="margin-top: 69px;">
 								<div class="title title-long">综合效能分析</div>
@@ -124,7 +124,7 @@
 							</div>							
 						</div>
 					</div>
-					<div class="xpanel-wrapper xpanel-wrapper-30">
+					<div class="xpanel-wrapper xpanel-wrapper-45">
 						<div class="xpanel xpanel-c-b">
 							<div class="title title-long">综合效能
 								<span ><button class="btn_details"  id="openModalBtn_zonghenengxiao">详情</button></span>
@@ -235,6 +235,8 @@
 
 				//加载首页所有图表
         		Echarts($('#yearChose').val());
+
+				console.log("Echarts($('#yearChose').val());=="+$('#yearChose').val());
 				//加载首页所有详情按钮功能
 				Modal_XiangQing_All();
 
@@ -300,8 +302,27 @@
 					var selectedYear = $(this).val();
 
 					// 在这里可以执行您想要的操作，例如显示所选的年份或将其发送到服务器等
-					// console.log('所选的年份是：', selectedYear);
+					 console.log('所选的年份是：', selectedYear);
 					Echarts(selectedYear);
+
+
+
+					// 发送 AJAX GET 请求 来创建excel文件
+					$.ajax({
+						url: '/getFileOut',
+						method: 'GET',
+						data: { year: selectedYear },  // 参数
+						dataType: 'json',  // 期望的数据类型
+						success: function (responseData) {
+							// 请求成功，处理返回的数据
+							console.log("创建成功")
+						},
+						error: function (xhr, status, error) {
+							// 请求失败，处理错误信息
+							console.error('Error:', error);
+						}
+					});
+
 				});
 
 
@@ -315,6 +336,8 @@
 
 			//首页各个图表-----------------------------------------------------------------------
 			function Echarts(year) {
+
+				console.log("yaer======ssss==s=sss"+year);
 
 
 						//B1 计划执行 折柱图
@@ -412,7 +435,7 @@
 					dataType:'json',
 					data:{
 						index_num:index_num,
-						year:year,
+						year: year,
 					},
 					success:function (data) {
 
@@ -561,8 +584,8 @@
 					trigger: 'axis'
 					},
 					grid: {
-						x: 46,
-						y:35,
+						x: '10%',
+						y:'30%',
 						x2:30,
 						y2:25,
 						borderWidth: 0
@@ -816,41 +839,6 @@
 
 			//详情模态页面----------------------------------------------------------------------------
 			//测试传递计算的数据
-			function math_test(index_num,year,pElement) {
-				$.ajax({
-
-					url:'/getTest',
-					type:'get',
-					dataType:'json',
-					data:{
-
-					},
-					success:function (data) {
-
-
-
-
-
-								var textToDisplay =
-										"平均值：" + mean + "<br>" +
-										"标准差：" + stddev + "<br>" +
-										"最大值：" + max + "<br>" +
-										"最小值：" + min+	"<br>"+
-										"中位数：" + mid+"<br>";
-
-								// 更新 <p> 元素的文本内容
-								pElement.html(textToDisplay);
-
-
-
-
-
-
-					}
-
-
-				});
-			}
 
 
 
@@ -998,10 +986,14 @@
 				var myChart_modal = echarts.init(chartDom);
 				var p_B2 = $("#p_B2");
 				math_data('B2',$('#yearChose').val(),p_B2)
+					console.log("$('#yearChose').val()=========="+$('#yearChose').val())
 				find_index_B_chart('B2',$('#yearChose').val(),myChart_modal);
 
 				// var n = 24;
 				// share_modal_charts(myChart_modal,n);
+
+					manthXiangQing();
+
 
 				});
 
@@ -1087,9 +1079,11 @@
 				find_index_B_chart('B1',$('#yearChose').val(),myChart_modal);
 				var p_B1 = $("#p_B1");
 				//pElement.text("nihaos22332");
-				math_data('B1',$('#yearChose').val(),p_B1)
-				// var n = 23;
-				// share_modal_charts(myChart_modal,n);
+				// math_data('B1',$('#yearChose').val(),p_B1)
+				p_B1.text();
+				manthXiangQing();
+
+
 			});
 
 
@@ -1375,13 +1369,60 @@
 					modal.css("display", "none");
 				}
 			});
-
-
-
 			}
 			
 
 		//详情模态页面----------------------------------------------------------------------------
+
+
+			//新的计算部分在点击详情之后显示-----------
+
+			function manthXiangQing() {
+
+				$.ajax({
+
+					url: '/getMathResult',
+					type: 'get',
+					dataType: 'json',
+
+
+					success: function (data) {
+						var b1mess='';
+						$.each(data,function (index,obj) {
+
+							switch (obj.id) {
+								case 'B1' :
+									b1mess.substring(0,2) === 'B1' ? b1mess = b1mess : b1mess = '' ;
+									console.log("b1mess==="+b1mess);
+									b1mess = b1mess + obj.information +'<br>';
+									$('#p_B1').html(b1mess);
+									break;
+								case 'B2' :
+									b1mess.substring(0,2) === 'B2' ? b1mess = b1mess : b1mess = '' ;
+									b1mess = b1mess + obj.information +'<br>';
+									$('#p_B2').html(b1mess);
+									break;
+								default : ;
+
+
+
+									// var textToDisplay =
+									// 		"平均值：" + mean + "<br>" +
+									// 		"标准差：" + stddev + "<br>" +
+									// 		"最大值：" + max + "<br>" +
+									// 		"最小值：" + min+	"<br>"+
+									// 		"中位数：" + mid+"<br>";
+									//
+									// // 更新 <p> 元素的文本内容
+									// pElement.html(textToDisplay);
+
+							}
+						})
+
+					}
+				})
+
+			}
 
 
 

@@ -1,6 +1,5 @@
 package com.yanchang.controller;
 
-import com.yanchang.domain.DomainData;
 import com.yanchang.entity.Two_Level_Data;
 import com.yanchang.mapper.B_two_levelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
